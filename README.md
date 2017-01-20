@@ -1,5 +1,3 @@
 # hello-world
 
-Hey People!
-
-I am  Oddjob.
+Nope, CODE!!!
