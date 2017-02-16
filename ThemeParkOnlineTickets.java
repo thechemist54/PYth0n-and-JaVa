@@ -1,8 +1,8 @@
-// Name: Aaman Bhandari  Date Assigned: 14 Feb 2017
+// Name: Aaman Bhandari 
 //
-// Course: CSCI 2003 60357     Date Due: 21 Feb 2017
+// Course: CSCI 2003      
 //
-// Instructor: Ms. Greer
+
 //
 // File name: ThemeParkOnlineTickets
 //
