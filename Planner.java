@@ -9,7 +9,7 @@
 // Program Description: A program that simulates a planner.
 
 import java.io.File;  //importing File class
-import java.io.FileNotFoundException;
+import java.io.FileNotFoundException; //importing the FileNotFoundException class
 import java.util.Scanner;  //importing Scanner class
 import java.io.PrintWriter;  //importing PrintWriter class
 
@@ -18,15 +18,6 @@ public class Planner
 {
     public static void main(String[] args) /*defining main class*/ throws FileNotFoundException        
     { 
-        File k = new File("records.txt");   //file object
-        Scanner ifile = new Scanner(k);  //object to read from file
-
-        File l = new File("planner.txt");   //file object
-        Scanner infile = new Scanner(l);  //object to read from file
-        
-        PrintWriter outfile = new PrintWriter("planner.txt"); //open writing
-        PrintWriter ofile = new PrintWriter("records.txt");
- 
 
 
         Scanner in = new Scanner(System.in); //object to read from user
@@ -38,10 +29,12 @@ public class Planner
         boolean flag = true;
 
 
-        String date = "";
-        String time = "";
-        String location = "";
+        String date = " ";
+        String time = " ";
+        String location = "";   //initializing variables
         String event = "";
+
+
 
 
         while(flag)
@@ -50,29 +43,60 @@ public class Planner
             System.out.println("\nOptions:");
             System.out.println("========");
             System.out.println("1. Add Event");
-            System.out.println("2. Display Events");
-            System.out.println("3. Quit");
+            System.out.println("2. Display Events");  //displaying the options
+            System.out.println("3. Quit");            //        to users
 
             System.out.print("\nEnter options (1, 2, or 3): ");
             int option = in.nextInt();
+
+            System.out.println();
+
 
 
 
 
             if (option == 1)
             {
-                
-                System.out.print("\nEnter date (MM/DD/YY): ");
-                date = in.next();
+
+                File l = new File("planner.txt");   //file object
+                Scanner infile = new Scanner(l);  //object to read from file
+
+                //object to write to a file records
+                PrintWriter ofile = new PrintWriter("records.txt");
+
+                //writing from the planner file to temporary file
+                while (infile.hasNextLine())
+                {
+                    ofile.println(infile.nextLine());
+                }
+
+                ofile.close();   //closing the opened files
+                infile.close();
+
+                //object to write to the file planner
+                PrintWriter outfile = new PrintWriter("planner.txt");
+
+                System.out.print("Enter date (MM/DD/YY): ");
+                in.nextLine();
+                date = in.nextLine();
 
                 System.out.print("Enter time (HH:MM): ");
-                time = in.next();
+                time = in.nextLine();                     //asking user for input
 
                 System.out.print("Enter location: ");
-                location = in.next();
+                location = in.nextLine();
 
                 System.out.print("Enter event: ");
-                event = in.next();
+                event = in.nextLine();
+
+                File k = new File("records.txt");  //file object
+                Scanner ifile = new Scanner(k);            //object to read from file
+
+                //writing from the temporary file to planner file
+                while (ifile.hasNextLine())
+                {
+                    outfile.println(ifile.nextLine());
+                }
 
 
                 outfile.println(date);
@@ -82,9 +106,8 @@ public class Planner
                 outfile.println(" ");
 
 
-
-
-
+                outfile.close();
+                ifile.close();
 
             }
 
@@ -92,47 +115,41 @@ public class Planner
             {
 
 
+                File k = new File("planner.txt");   //file object
+                Scanner infile = new Scanner(k);  //object to read from file
 
-                if(ifile.hasNextLine())
+                if(infile.hasNextLine())
                 {
 
+                    //displaying the events
 
                     while (infile.hasNextLine())
                     {
-                        System.out.println(ifile.nextLine());
+                        System.out.println(infile.nextLine());
                     }
+
+
 
                 }
 
                 else
                 {
 
-                    System.out.println("\nNo events added!");
+                    System.out.println("No events added!");
 
                 }
+
+                infile.close(); //closing the opened files
             }
 
             else if (option == 3)
             {
-                flag = false;
+                flag = false; //ending the loop using flag
             }
 
 
 
         }
-
-
-        ofile.close();
-        outfile.close();
-        ifile.close();
-        infile.close();
-
-
-
-
-        
-        
-
 
 
     }
