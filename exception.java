@@ -19,28 +19,27 @@ public class exception
             num = in.nextLine();
             
             rnum = Double.parseDouble(num);
-            if(rnum<0)
+            
+            if(rnum==-1)
             {
-               count+=1;
-               if(rnum==-1);
-               {
-                  break;
-               }
+              break;
+               
 
                
-               if(count<2)
-               {
-                  sum+=rnum;
-                  continue;
-                  
-
-               }
-               if(count>2)
-               {
-                  break;
-               }
             }
-            sum+=rnum;
+            else if(rnum<0 && rnum != -1)
+            {
+            
+               count+=1;
+               if(count>1)
+               {break;}
+               
+            
+            }
+            else
+            {
+               sum+=rnum;
+            }
                                    
            
             
@@ -58,8 +57,9 @@ public class exception
             {
                break;
             }
-         }
+        }
+        
       }
-      System.out.println("Sum: "+sum);
+      System.out.printf("Sum: %.0f",sum);
    }
 }
