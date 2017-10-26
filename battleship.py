@@ -8,12 +8,13 @@ for x in range(0, 5):
 def print_board(board):
     for row in board:
         print (" ".join(row))
-
+## Printing board
 print_board(board)
 
+## Function random row
 def random_row(board):
     return randint(0, len(board) - 1)
-
+## Function random column
 def random_col(board):
     return randint(0, len(board[0]) - 1)
 
@@ -25,7 +26,7 @@ guess_col = int(input("Guess Col:"))
 print (ship_row)
 print (ship_col)
 
-
+## Condition
 if guess_row==ship_row and guess_col==ship_col:
     print ("Congratulations! You sank my battleship!")
     
