@@ -8,6 +8,7 @@
 //
 // Program Description: Create a single month of a calendar based on user input.
 
+
 import java.util.Scanner; //importing the scanner class
 
 public class Calendar    //calendar class
@@ -19,6 +20,7 @@ public class Calendar    //calendar class
         System.out.println();                       //initial welcome
 
         Scanner in = new Scanner(System.in);
+        //Declaring variables        
         int year = 0;
         int month = 0;
         int day = 0;
@@ -29,7 +31,7 @@ public class Calendar    //calendar class
          
         //chk,phk,dhk = checking variable  
         
-        while(flag)
+        while(flag) \\if flag is true
         {
             try
             {
@@ -50,7 +52,7 @@ public class Calendar    //calendar class
 
 
             }
-            catch (NumberFormatException e)
+            catch (NumberFormatException e) \\will catch and exception
             {
                 continue;
             }
